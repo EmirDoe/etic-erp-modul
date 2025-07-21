@@ -33,6 +33,11 @@ class OrderController extends Controller
         $order->update($request->all());
         return redirect()->route('orders.index')->with('success', 'Sipariş güncellendi!');
     }
+    public function destroy($id)
+    {
+        Order::destroy($id);
+        return redirect()->route('orders.index')->with('success', 'Sipariş silindi!');
+    }
 
     public function store(Request $request)
     {

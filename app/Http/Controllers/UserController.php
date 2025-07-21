@@ -41,6 +41,12 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Kullanıcı güncellendi!');
     }
 
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return redirect()->route('users.index')->with('success', 'Kullanıcı silindi!');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

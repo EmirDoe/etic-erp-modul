@@ -46,6 +46,11 @@ class InvoiceController extends Controller
         $invoice->update($request->all());
         return redirect()->route('invoices.index')->with('success', 'Fatura güncellendi!');
     }
+    public function destroy($id)
+    {
+        Invoice::destroy($id);
+        return redirect()->route('invoices.index')->with('success', 'Fatura silindi!');
+    }
 
     public function markPaid($id)
     {
